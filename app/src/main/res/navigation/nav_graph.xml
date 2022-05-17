@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/photoFragment"
-        android:name="com.example.galery.ui.PhotoFragment"
+        android:name="com.example.galery.ui.photo.PhotoFragment"
         android:label="PhotoFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -19,8 +19,17 @@
         android:name="com.example.galery.ui.detailed.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail_screan">
-    <argument
-        android:name="onePhoto"
-        app:argType="com.example.galery.data.entity.OnePhotoItem"/>
+        <argument
+            android:name="onePhoto"
+            app:argType="com.example.galery.data.entity.OnePhotoItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.galery.ui.favorites.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

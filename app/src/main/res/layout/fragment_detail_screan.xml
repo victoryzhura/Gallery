@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_image_gallery"
+            android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/blue"
@@ -30,7 +30,18 @@
             android:visibility="invisible"
             app:indeterminateAnimationType="disjoint"
             app:indicatorColor="@array/progress_colors"
-            app:layout_constraintTop_toBottomOf="@id/main_image_gallery" />
+            app:layout_constraintTop_toBottomOf="@id/tool_bar" />
+
+        <ImageView
+            android:id="@+id/button_return"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_baseline_arrow_back"
+            app:layout_constraintBottom_toBottomOf="@id/tool_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,25 +53,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/like_detail"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_margin="12dp"
+            android:layout_marginEnd="12dp"
             android:background="@{detailedPhoto.isLiked ? @drawable/ic_red_like : @drawable/ic_gray_like}"
             android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@id/download"
             app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintBottom_toBottomOf="@id/tool_bar"/>
 
         <ImageView
             android:id="@+id/download"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_margin="12dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/ic_baseline_save_alt_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tool_bar"/>
 
         <ImageView
             android:id="@+id/detailed_photo_image_small"
@@ -87,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Detailed photo"
+            android:text="@{detailedPhoto.description == null ? detailedPhoto.alt_description : detailedPhoto.description}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@id/detailed_photo_image_small" />

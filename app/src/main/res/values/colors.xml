@@ -11,6 +11,7 @@
     <color name="yellow">#fcec03</color>
     <color name="green">#03fc03</color>
     <color name="light_blue">#03e3fc</color>
+    <color name="purple">#7c43bd</color>
 
     <integer-array name="progress_colors">
         <item>@color/light_blue</item>

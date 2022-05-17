@@ -10,24 +10,39 @@ import com.example.galery.R
 import com.example.galery.data.entity.OnePhotoItem
 import com.example.galery.databinding.ItemPhotoBinding
 
-class PhotoAdapter(private val callback: (OnePhotoItem)->Unit, private val clickLike: (OnePhotoItem)-> Unit) : PagingDataAdapter<OnePhotoItem, PhotoAdapter.PhotoHolder>(
+class PhotoAdapter(
+    private val callback: (OnePhotoItem) -> Unit,
+    private val clickLike: (OnePhotoItem) -> Unit
+) : PagingDataAdapter<OnePhotoItem, PhotoAdapter.PhotoHolder>(
     PhotoCallback()
 ) {
 
     inner class PhotoHolder(private val binding: ItemPhotoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: OnePhotoItem) {
+           val oneLiked = list.find {
+                item.id == it.id
+            }
+            item.isLiked = oneLiked != null
+
             binding.onePhoto = item
-            binding.root.setOnClickListener{
+            binding.root.setOnClickListener {
                 callback(item)
             }
-            binding.grayLike.setOnClickListener{
+            binding.grayLike.setOnClickListener {
                 item.isLiked = !item.isLiked
                 binding.onePhoto = item
                 clickLike(item)
             }
             binding.executePendingBindings()
         }
+    }
+
+    var list = listOf<OnePhotoItem>()
+
+    fun setListOfLiked(list: List<OnePhotoItem>) {
+        this.list = list
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoHolder {
