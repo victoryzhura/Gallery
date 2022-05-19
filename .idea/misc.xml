@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/connection_error.xml" value="0.1765" />
         <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.1765" />
         <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/ic_gray_like.xml" value="0.1765" />
         <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/ic_red_like.xml" value="0.1765" />
+        <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/loading_animation.xml" value="0.1765" />
+        <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/loading_img.xml" value="0.119" />
         <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/drawable/selector.xml" value="0.1765" />
         <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/vika1/AndroidStudioProjects/Galery/app/src/main/res/layout/fragment_detail_screan.xml" value="0.31791530944625407" />

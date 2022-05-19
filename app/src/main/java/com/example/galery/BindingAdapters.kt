@@ -28,3 +28,5 @@ fun ImageView.bindImageDetails(imgUrl: Urls) {
             .into(this)
     }
 }
+
+
