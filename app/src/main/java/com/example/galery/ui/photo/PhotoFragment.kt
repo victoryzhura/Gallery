@@ -1,8 +1,6 @@
 package com.example.galery.ui.photo
 
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
-import androidx.paging.map
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.galery.R
 import com.example.galery.data.database.OnePhotoDatabase
@@ -19,12 +16,8 @@ import com.example.galery.databinding.FragmentMainBinding
 import com.example.galery.ui.PhotoAdapter
 import com.example.galery.ui.base.RoomViewModelFactory
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.onEmpty
-import kotlinx.coroutines.flow.onErrorReturn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 class PhotoFragment : Fragment() {
