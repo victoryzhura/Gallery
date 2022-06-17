@@ -6,10 +6,12 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.example.galery.data.entity.OnePhotoItem
+import com.example.galery.ui.PhotoAdapter
 import retrofit2.http.GET
 
 @Dao
 interface OnePhotoDatabaseDao {
+
 
     @Insert
     suspend fun insert(photo: OnePhotoItem)

@@ -4,45 +4,21 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.media.MediaScannerConnection
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.galery.data.database.OnePhotoDatabase
 import com.example.galery.databinding.FragmentDetailScreanBinding
-import com.example.galery.ui.base.RoomViewModelFactory
+import com.example.galery.ui.base.BaseFragment
 import com.example.galery.ui.utility.DownloadsImage
 import com.example.galery.ui.utility.showToast
 
 
-class DetailFragment : Fragment() {
-    private lateinit var binding: FragmentDetailScreanBinding
+class DetailFragment : BaseFragment<FragmentDetailScreanBinding, DetailsViewModel>(
+    FragmentDetailScreanBinding::inflate
+) {
     private val args: DetailFragmentArgs by navArgs()
-    private lateinit var viewModelDetails: DetailsViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentDetailScreanBinding.inflate(inflater)
-
-        val application = requireActivity().application
-        val dataSource = OnePhotoDatabase.getInstance(application).onePhotoDatabase
-        val viewModelFactory = RoomViewModelFactory(dataSource)
-        viewModelDetails =
-            ViewModelProvider(
-                this, viewModelFactory
-            )[DetailsViewModel::class.java]
-
-        setHasOptionsMenu(true)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,7 +30,7 @@ class DetailFragment : Fragment() {
         binding.likeDetail.setOnClickListener {
             args.onePhoto.isLiked = !args.onePhoto.isLiked
             binding.detailedPhoto = args.onePhoto
-            viewModelDetails.insert(args.onePhoto)
+            viewModel.insert(args.onePhoto)
         }
         binding.buttonReturn.setOnClickListener {
             findNavController().popBackStack()
