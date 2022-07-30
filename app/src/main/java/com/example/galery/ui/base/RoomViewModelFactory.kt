@@ -9,11 +9,8 @@ class RoomViewModelFactory(
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        if (modelClass.isAssignableFrom(modelClass::class.java)) {
-            return modelClass.getConstructor(OnePhotoDatabaseDao::class.java)
-                .newInstance(dataSource)
-//        }
-//        throw IllegalArgumentException("Unknown ViewModel class")
+        return modelClass.getConstructor(OnePhotoDatabaseDao::class.java)
+            .newInstance(dataSource)
     }
-
 }
+

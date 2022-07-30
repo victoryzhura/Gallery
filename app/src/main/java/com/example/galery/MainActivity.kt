@@ -2,6 +2,7 @@ package com.example.galery
 
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -19,5 +20,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<BottomNavigationView>(R.id.bottom_navigation)
             .setupWithNavController(navController)
 
+    }
+
+    fun goneVisibility() {
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.GONE
+    }
+
+    fun visibleVisibility() {
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility = View.VISIBLE
     }
 }

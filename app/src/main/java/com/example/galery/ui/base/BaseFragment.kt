@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.example.galery.data.database.OnePhotoDatabase
 import java.lang.reflect.ParameterizedType
+import java.util.*
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -41,7 +42,6 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
     private fun getVMClass(): Class<VM> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

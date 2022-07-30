@@ -36,7 +36,6 @@ class PhotoFragment :
         binding.lifecycleOwner = this
         binding.photoRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
 
-
         viewModel.listOfLiked.observe(viewLifecycleOwner) {
             adapter.setListOfLiked(it)
         }

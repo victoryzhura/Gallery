@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.galery.MainActivity
 import com.example.galery.databinding.FragmentDetailScreanBinding
 import com.example.galery.ui.base.BaseFragment
 import com.example.galery.ui.utility.DownloadsImage
@@ -19,9 +20,13 @@ class DetailFragment : BaseFragment<FragmentDetailScreanBinding, DetailsViewMode
     FragmentDetailScreanBinding::inflate
 ) {
     private val args: DetailFragmentArgs by navArgs()
+    private val activity: MainActivity by lazy{
+        requireActivity() as MainActivity
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity.goneVisibility()
         binding.detailedPhoto = args.onePhoto
         binding.download.setOnClickListener {
             downloadImage(args.onePhoto.urls?.full)
@@ -35,6 +40,7 @@ class DetailFragment : BaseFragment<FragmentDetailScreanBinding, DetailsViewMode
         binding.buttonReturn.setOnClickListener {
             findNavController().popBackStack()
         }
+
     }
 
     private fun downloadImage(ImageUrl: String?) {
@@ -73,6 +79,12 @@ class DetailFragment : BaseFragment<FragmentDetailScreanBinding, DetailsViewMode
             }).execute(ImageUrl)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activity.visibleVisibility()
+    }
+
 }
 
 

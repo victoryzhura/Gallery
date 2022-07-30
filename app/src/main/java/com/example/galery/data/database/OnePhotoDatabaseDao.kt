@@ -12,7 +12,6 @@ import retrofit2.http.GET
 @Dao
 interface OnePhotoDatabaseDao {
 
-
     @Insert
     suspend fun insert(photo: OnePhotoItem)
 
@@ -22,5 +21,4 @@ interface OnePhotoDatabaseDao {
     @Query("SELECT * FROM photo_table")
     fun getAllPhoto(): LiveData<List<OnePhotoItem>>
 }
-
 
